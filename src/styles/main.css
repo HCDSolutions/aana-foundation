@@ -1,0 +1,149 @@
+:root {
+  --primary: #2a5298;
+  --secondary: #1e3c72;
+  --accent: #f9d342;
+  --background: #f4f7fa;
+  --text: #222;
+  --cta: #e94e77;
+  --cta-hover: #d13c67;
+  --success: #4caf50;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--cta);
+  color: #fff;
+  padding: 0.75em 2em;
+  border-radius: 2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 1em 0.5em 0 0.5em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.cta-button:hover {
+  background: var(--cta-hover);
+}
+
+.secondary-button {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.75em 2em;
+  border-radius: 2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 1em 0.5em 0 0.5em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.secondary-button:hover {
+  background: #fff;
+  color: var(--primary);
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(42, 82, 152, 0.08);
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+section h2 {
+  color: var(--primary);
+  margin-top: 0;
+}
+
+.impact ul,
+.upcoming-events ul {
+  padding-left: 1.2em;
+}
+
+.impact li,
+.upcoming-events li {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+footer {
+  background: var(--secondary);
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+}
+/* Mobile optimization for donate page */
+@media (max-width: 600px) {
+  .select-group,
+  .payment-methods {
+    flex-direction: column;
+    gap: 0.75em;
+  }
+  .select-btn {
+    width: 100%;
+    font-size: 1.1em;
+    padding: 1em;
+  }
+  input[type="number"],
+  input[type="text"] {
+    width: 100% !important;
+    font-size: 1.1em;
+  }
+  form.donation-form {
+    padding: 0.5em;
+  }
+  main {
+    padding: 0.5em;
+  }
+  section {
+    padding: 1em 0.5em;
+  }
+}

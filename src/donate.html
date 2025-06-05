@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate | Nurse Anesthesiology Foundation</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      /* Add button styles and 4px border radius for inputs */
+      .select-group {
+        display: flex;
+        gap: 1em;
+        margin-bottom: 1.5em;
+      }
+      .select-btn {
+        padding: 0.7em 1.5em;
+        border: 2px solid var(--primary, #2a5298);
+        background: #fff;
+        color: var(--primary, #2a5298);
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      .select-btn.selected,
+      .select-btn:focus {
+        background: var(--primary, #2a5298);
+        color: #fff;
+        outline: none;
+      }
+      input[type="number"],
+      input[type="text"] {
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 0.5em;
+        font-size: 1em;
+      }
+      .payment-methods {
+        display: flex;
+        gap: 1em;
+        margin-bottom: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html" class="active">Donate</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="stories.html">Success Stories</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>Donate to Support Nurse Anesthesiology</h1>
+      <p>
+        Your gift funds research, scholarships, and the future of nurse
+        anesthesiology.
+      </p>
+    </header>
+    <main>
+      <section>
+        <form class="donation-form" autocomplete="off">
+          <h2>Choose your donation type</h2>
+          <div class="select-group" id="frequency-group">
+            <button
+              type="button"
+              class="select-btn selected"
+              data-value="one-time"
+            >
+              One-time
+            </button>
+            <button type="button" class="select-btn" data-value="monthly">
+              Monthly
+            </button>
+          </div>
+          <input
+            type="hidden"
+            name="frequency"
+            id="frequency-input"
+            value="one-time"
+          />
+
+          <h2>Select an amount</h2>
+          <div class="select-group" id="amount-group">
+            <button type="button" class="select-btn selected" data-value="25">
+              $25
+            </button>
+            <button type="button" class="select-btn" data-value="50">
+              $50
+            </button>
+            <button type="button" class="select-btn" data-value="75">
+              $75
+            </button>
+            <button
+              type="button"
+              class="select-btn"
+              data-value="other"
+              id="otherAmountBtn"
+            >
+              Other
+            </button>
+            <input
+              type="number"
+              name="other-amount"
+              id="otherAmountInput"
+              min="1"
+              placeholder="Other $"
+              style="width: 90px; display: none"
+            />
+          </div>
+          <input type="hidden" name="amount" id="amount-input" value="25" />
+
+          <h2>Payment Method</h2>
+          <div class="payment-methods" id="payment-group">
+            <button
+              type="button"
+              class="select-btn selected"
+              data-value="credit-card"
+            >
+              Credit Card
+            </button>
+            <button type="button" class="select-btn" data-value="paypal">
+              PayPal
+            </button>
+            <button type="button" class="select-btn" data-value="apple-pay">
+              Apple Pay
+            </button>
+          </div>
+          <input
+            type="hidden"
+            name="payment"
+            id="payment-input"
+            value="credit-card"
+          />
+
+          <div id="credit-card-fields">
+            <label>
+              Card Number<br />
+              <input
+                type="text"
+                name="cc-number"
+                maxlength="19"
+                placeholder="1234 5678 9012 3456"
+                required
+              /> </label
+            ><br />
+            <label>
+              Expiry<br />
+              <input
+                type="text"
+                name="cc-expiry"
+                maxlength="5"
+                placeholder="MM/YY"
+                required
+              /> </label
+            ><br />
+            <label>
+              CVC<br />
+              <input
+                type="text"
+                name="cc-cvc"
+                maxlength="4"
+                placeholder="CVC"
+                required
+              />
+            </label>
+          </div>
+
+          <div id="paypal-fields" style="display: none">
+            <p>
+              After clicking Donate, you will be redirected to PayPal to
+              complete your donation.
+            </p>
+          </div>
+          <div id="apple-pay-fields" style="display: none">
+            <p>Apple Pay is supported on compatible devices and browsers.</p>
+          </div>
+
+          <button type="submit" class="cta-button">Donate</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Nurse Anesthesiology Nonprofit</p>
+    </footer>
+    <script>
+      // Frequency selection
+      const freqBtns = document.querySelectorAll(
+        "#frequency-group .select-btn"
+      );
+      const freqInput = document.getElementById("frequency-input");
+      freqBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          freqBtns.forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+          freqInput.value = this.dataset.value;
+        });
+      });
+
+      // Amount selection
+      const amountBtns = document.querySelectorAll("#amount-group .select-btn");
+      const amountInput = document.getElementById("amount-input");
+      const otherAmountBtn = document.getElementById("otherAmountBtn");
+      const otherAmountInput = document.getElementById("otherAmountInput");
+      amountBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          amountBtns.forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+          if (this.dataset.value === "other") {
+            otherAmountInput.style.display = "";
+            otherAmountInput.focus();
+            amountInput.value = otherAmountInput.value || "";
+          } else {
+            otherAmountInput.style.display = "none";
+            amountInput.value = this.dataset.value;
+          }
+        });
+      });
+      otherAmountInput.addEventListener("input", function () {
+        amountInput.value = this.value;
+      });
+
+      // Payment method selection
+      const paymentBtns = document.querySelectorAll(
+        "#payment-group .select-btn"
+      );
+      const paymentInput = document.getElementById("payment-input");
+      const ccFields = document.getElementById("credit-card-fields");
+      const paypalFields = document.getElementById("paypal-fields");
+      const applePayFields = document.getElementById("apple-pay-fields");
+      paymentBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          paymentBtns.forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+          paymentInput.value = this.dataset.value;
+          ccFields.style.display =
+            this.dataset.value === "credit-card" ? "" : "none";
+          paypalFields.style.display =
+            this.dataset.value === "paypal" ? "" : "none";
+          applePayFields.style.display =
+            this.dataset.value === "apple-pay" ? "" : "none";
+        });
+      });
+    </script>
+  </body>
+</html>
