@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nurse Anesthesiology Research & Scholarships</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -32,29 +36,109 @@
     <main>
       <section class="impact">
         <h2>Your Impact</h2>
-        <ul>
-          <li><strong>$500,000+</strong> awarded in scholarships</li>
-          <li><strong>20+</strong> research projects funded</li>
-          <li><strong>1000+</strong> nurse anesthesiologists supported</li>
+        <ul class="impact-list">
+          <li>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <strong>$500,000+</strong> awarded in scholarships
+          </li>
+          <li>
+            <i class="fa-solid fa-flask"></i>
+            <strong>20+</strong> research projects funded
+          </li>
+          <li>
+            <i class="fa-solid fa-user-nurse"></i>
+            <strong>1000+</strong> nurse anesthesiologists supported
+          </li>
         </ul>
         <a href="impact.html">See how your donations are used &rarr;</a>
       </section>
       <section class="upcoming-events">
         <h2>Upcoming Events</h2>
-        <ul>
-          <li>Annual Research Gala – July 15, 2025</li>
-          <li>Scholarship Application Deadline – August 1, 2025</li>
-        </ul>
+        <div class="event-cards">
+          <div class="event-card">
+            <h3>Annual Research Gala</h3>
+            <p class="event-date">July 15, 2025 &middot; 6:00 PM</p>
+            <p class="event-desc">
+              Join us for an inspiring evening supporting nurse anesthesiology
+              research and scholarships.
+            </p>
+          </div>
+          <div class="event-card">
+            <h3>Scholarship Application Deadline</h3>
+            <p class="event-date">August 1, 2025 &middot; 11:59 PM</p>
+            <p class="event-desc">
+              Submit your application for a chance to receive funding for your
+              nurse anesthesiology studies.
+            </p>
+          </div>
+          <div class="event-card">
+            <h3>Fall Networking Mixer</h3>
+            <p class="event-date">September 10, 2025 &middot; 5:30 PM</p>
+            <p class="event-desc">
+              Connect with peers and leaders in nurse anesthesiology at our
+              annual networking event.
+            </p>
+          </div>
+        </div>
         <a href="events.html">View all events &rarr;</a>
       </section>
       <section class="success-stories">
         <h2>Success Stories</h2>
-        <p>Read how your support changes lives.</p>
-        <a href="stories.html">Read stories &rarr;</a>
+        <div class="stories-list">
+          <article class="story">
+            <h3>Dr. Jane Smith</h3>
+            <p>
+              "Thanks to the Foundation's scholarship, I was able to complete my
+              studies and now serve my community as a nurse anesthesiologist."
+            </p>
+          </article>
+          <article class="story">
+            <h3>Michael Lee, CRNA</h3>
+            <p>
+              "The research grant I received helped me develop new pain
+              management protocols that are now used nationwide."
+            </p>
+          </article>
+        </div>
+        <a href="stories.html">Read more stories &rarr;</a>
       </section>
     </main>
     <footer>
-      <p>&copy; 2025 Nurse Anesthesiology Nonprofit</p>
+      <div class="footer-content">
+        <div class="footer-social">
+          <h4>Connect with us</h4>
+          <a href="https://facebook.com/" target="_blank" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="https://bsky.app/" target="_blank" aria-label="Bluesky"
+            ><i class="fa-brands fa-bluesky"></i
+          ></a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@nurseanesthesiology.org"
+              >info@nurseanesthesiology.org</a
+            >
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> 123 Foundation Ave, Suite
+            100, Chicago, IL 60601
+          </p>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 Nurse Anesthesiology Nonprofit</p>
     </footer>
     <script src="scripts/main.js"></script>
   </body>
