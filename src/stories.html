@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Success Stories | Nurse Anesthesiology Foundation</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="stories.html" class="active">Success Stories</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <label for="theme-select" style="font-size: 0.95em">Theme:</label>
+          <select id="theme-select">
+            <option value="default">Foundation Blue</option>
+            <option value="nature">Nature Green</option>
+            <option value="sunset">Sunset Orange</option>
+          </select>
+        </div>
+      </nav>
+      <h1>Success Stories</h1>
+      <p>Read how your support is changing lives in nurse anesthesiology.</p>
+    </header>
+    <main>
+      <section class="stories-gallery">
+        <div class="story-card">
+          <a href="story-jane-smith.html">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+              alt="Dr. Jane Smith"
+            />
+            <h3>Dr. Jane Smith</h3>
+            <p>
+              From scholarship recipient to community leader—read Jane's
+              journey.
+            </p>
+          </a>
+        </div>
+        <div class="story-card">
+          <a href="story-michael-lee.html">
+            <img
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80"
+              alt="Michael Lee, CRNA"
+            />
+            <h3>Michael Lee, CRNA</h3>
+            <p>
+              How a research grant helped Michael innovate pain management
+              protocols.
+            </p>
+          </a>
+        </div>
+        <div class="story-card">
+          <a href="story-sarah-jones.html">
+            <img
+              src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80"
+              alt="Sarah Jones"
+            />
+            <h3>Sarah Jones</h3>
+            <p>
+              Sarah’s volunteer work is making a difference for future CRNAs.
+            </p>
+          </a>
+        </div>
+        <!-- Add more story cards as needed -->
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-social">
+          <h4>Connect with us</h4>
+          <a href="https://facebook.com/" target="_blank" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="https://bsky.app/" target="_blank" aria-label="Bluesky"
+            ><i class="fa-brands fa-bluesky"></i
+          ></a>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><i class="fa-solid fa-phone"></i> (555) 123-4567</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@nurseanesthesiology.org"
+              >info@nurseanesthesiology.org</a
+            >
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i> 123 Foundation Ave, Suite
+            100, Chicago, IL 60601
+          </p>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 Nurse Anesthesiology Nonprofit</p>
+    </footer>
+    <script>
+      // Theme picker logic
+      const themeSelect = document.getElementById("theme-select");
+      const userPref = localStorage.getItem("theme");
+      if (userPref) {
+        setTheme(userPref);
+        themeSelect.value = userPref;
+      } else {
+        themeSelect.value = "default";
+      }
+
+      themeSelect.addEventListener("change", function () {
+        setTheme(this.value);
+        localStorage.setItem("theme", this.value);
+      });
+
+      function setTheme(theme) {
+        document.documentElement.classList.remove(
+          "theme-default",
+          "theme-nature",
+          "theme-sunset"
+        );
+        if (theme === "nature") {
+          document.documentElement.classList.add("theme-nature");
+        } else if (theme === "sunset") {
+          document.documentElement.classList.add("theme-sunset");
+        } else {
+          document.documentElement.classList.add("theme-default");
+        }
+      }
+    </script>
+  </body>
+</html>

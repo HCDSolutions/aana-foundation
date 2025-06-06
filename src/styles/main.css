@@ -312,11 +312,14 @@ footer {
 
 /* Sunset Orange */
 .theme-sunset {
-  --primary: #ff7043;
-  --secondary: #fff3e0;
-  --accent: #ffd180;
-  --background: #fff8f0;
-  --text: #4e260e;
+  --primary: #c2410c;
+  --primary-light: #fed7aa;
+  --secondary: #0c8cc2;
+  --secondary-light: #aae8fe;
+  --accent: #f59e0b;
+  --accent-light: #ffecb5;
+  --background: #f7f5ee;
+  --text: #3a3a3a;
 }
 
 body {
@@ -346,4 +349,44 @@ a {
 
 a:hover {
   color: var(--accent, #f9d342);
+}
+.stories-gallery {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2em 0;
+}
+.story-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(42, 82, 152, 0.06);
+  max-width: 260px;
+  min-width: 200px;
+  text-align: center;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.story-card:hover {
+  box-shadow: 0 4px 16px rgba(42, 82, 152, 0.12);
+}
+.story-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.story-card h3 {
+  margin: 0.7em 0 0.3em 0;
+  color: var(--primary, #2a5298);
+}
+.story-card p {
+  margin: 0 1em 1em 1em;
+  color: #333;
+  font-size: 1em;
+}
+.story-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
