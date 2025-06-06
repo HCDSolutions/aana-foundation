@@ -289,3 +289,61 @@ footer {
   font-size: 0.95em;
   letter-spacing: 0.03em;
 }
+/* Foundation Blue (default) */
+.theme-default {
+  --primary: #2a5298;
+  --secondary: #1e3c72;
+  --accent: #ffbe62;
+  --background: #fff;
+  --text: #222;
+}
+
+/* Nature Green */
+.theme-nature {
+  --primary: #047857;
+  --primary-light: #d1fae5;
+  --secondary: #065f46;
+  --secondary-light: #a7f3d0;
+  --accent: #92400e;
+  --accent-light: #fef3c7;
+  --background: #f4fff4;
+  --text: #000000;
+}
+
+/* Sunset Orange */
+.theme-sunset {
+  --primary: #ff7043;
+  --secondary: #fff3e0;
+  --accent: #ffd180;
+  --background: #fff8f0;
+  --text: #4e260e;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
+header,
+nav,
+.event-card,
+.story,
+footer {
+  background: var(--secondary, #f4f4f4);
+  color: var(--text, #222);
+}
+
+.cta-button,
+.select-btn.selected,
+.select-btn:focus {
+  background: var(--primary, #2a5298);
+  color: #fff;
+}
+
+a {
+  color: var(--primary, #2a5298);
+}
+
+a:hover {
+  color: var(--accent, #f9d342);
+}

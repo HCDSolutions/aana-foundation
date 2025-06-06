@@ -24,6 +24,14 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="theme-picker">
+          <label for="theme-select" style="font-size: 0.95em">Theme:</label>
+          <select id="theme-select">
+            <option value="default">Foundation Blue</option>
+            <option value="nature">Nature Green</option>
+            <option value="sunset">Sunset Orange</option>
+          </select>
+        </div>
       </nav>
       <h1>Support Nurse Anesthesiology Research & Scholarships</h1>
       <p>
@@ -141,5 +149,35 @@
       <p class="footer-copy">&copy; 2025 Nurse Anesthesiology Nonprofit</p>
     </footer>
     <script src="scripts/main.js"></script>
+    <script>
+      const themeSelect = document.getElementById("theme-select");
+      const userPref = localStorage.getItem("theme");
+      if (userPref) {
+        setTheme(userPref);
+        themeSelect.value = userPref;
+      } else {
+        themeSelect.value = "default";
+      }
+
+      themeSelect.addEventListener("change", function () {
+        setTheme(this.value);
+        localStorage.setItem("theme", this.value);
+      });
+
+      function setTheme(theme) {
+        document.documentElement.classList.remove(
+          "theme-default",
+          "theme-nature",
+          "theme-sunset"
+        );
+        if (theme === "nature") {
+          document.documentElement.classList.add("theme-nature");
+        } else if (theme === "sunset") {
+          document.documentElement.classList.add("theme-sunset");
+        } else {
+          document.documentElement.classList.add("theme-default");
+        }
+      }
+    </script>
   </body>
 </html>
