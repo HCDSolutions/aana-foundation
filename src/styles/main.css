@@ -26,12 +26,11 @@ header {
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 nav a {
@@ -120,7 +119,7 @@ footer {
   font-size: 1em;
   letter-spacing: 0.05em;
 }
-/* Mobile optimization for donate page */
+/* Mobile optimization */
 @media (max-width: 600px) {
   .select-group,
   .payment-methods {
@@ -389,4 +388,53 @@ a:hover {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: wrap;
+  padding: 0 1em;
+}
+
+.brand-logo {
+  margin-right: 2em;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  color: #fff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.logo-highlight {
+  color: var(--accent, #f9d342);
+}
+/* Added hero section */
+.hero {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  text-align: center;
+  padding: 3em 1em 2.5em 1em;
+  margin-bottom: 2em;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0;
+}
+.hero h1 {
+  margin-top: 0;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+.hero p {
+  font-size: 1.2em;
+  margin: 1em 0 2em 0;
+}
+.hero .cta-button,
+.hero .secondary-button {
+  margin: 0 0.5em;
 }
