@@ -5,23 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nurse Anesthesiology Research & Scholarships</title>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="icon" href="favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:900,700,400&display=swap"
+      rel="stylesheet"
     />
   </head>
   <body>
     <header>
-      <nav>
-        <div class="brand-logo">
-          <a href="index.html" aria-label="AANA Foundation Home">
-            <span class="logo-text">
-              AANA <span class="logo-highlight">Foundation</span>
+      <nav class="main-nav">
+        <div
+          class="brand-logo"
+          style="display: flex; align-items: center; gap: 0.7em"
+        >
+          <img
+            src="images/3logo.png"
+            alt="AANA Foundation - American Association of Nurse Anesthesiology"
+            style="height: 32px; width: auto; display: block"
+          />
+          <div style="display: flex; flex-direction: column; line-height: 1">
+            <span
+              style="
+                font-family: 'Montserrat', Arial, sans-serif;
+                font-weight: 900;
+                font-size: 2em;
+                color: #3a86ff;
+              "
+            >
+              AANA
             </span>
-          </a>
+            <span
+              style="
+                font-family: 'Montserrat', Arial, sans-serif;
+                font-weight: 700;
+                font-size: 1.5em;
+                color: #d7263d;
+              "
+            >
+              Foundation
+            </span>
+          </div>
         </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="impact.html">Impact</a></li>
           <li><a href="events.html">Events</a></li>
@@ -31,6 +66,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <!-- Theme Picker -->
         <div class="theme-picker">
           <label for="theme-select" style="font-size: 0.95em">Theme:</label>
           <select id="theme-select">
@@ -41,6 +77,7 @@
         </div>
       </nav>
     </header>
+
     <section class="hero">
       <h1>Support Nurse Anesthesiology Research & Scholarships</h1>
       <p>
@@ -51,6 +88,9 @@
       <a class="secondary-button" href="volunteer.html">Volunteer</a>
     </section>
     <main>
+      <div class="impact-highlight">
+        <h2><span id="scholarship-count">0</span> Scholarships Awarded</h2>
+      </div>
       <section class="impact">
         <h2>Your Impact</h2>
         <ul class="impact-list">
@@ -118,6 +158,38 @@
           </article>
         </div>
         <a href="stories.html">Read more stories &rarr;</a>
+        <!-- Testimonial slider -->
+        <div class="testimonial-slider">
+          <div class="testimonial active">
+            <p>
+              “The AANA Foundation changed my life. Their support made my dream
+              possible.”
+              <br /><strong>- Sarah T., Scholarship Recipient</strong>
+            </p>
+          </div>
+          <div class="testimonial">
+            <p>
+              “Our research was funded at a critical time. The Foundation truly
+              invests in the future.”
+              <br /><strong>- Dr. Mark Evans</strong>
+            </p>
+          </div>
+          <div class="testimonial">
+            <p>
+              “I love volunteering with AANA Foundation. The community is
+              inspiring and welcoming.”
+              <br /><strong>- Emily R., Volunteer</strong>
+            </p>
+          </div>
+          <div class="testimonial-nav">
+            <button id="prevTestimonial" aria-label="Previous testimonial">
+              &lt;
+            </button>
+            <button id="nextTestimonial" aria-label="Next testimonial">
+              &gt;
+            </button>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
@@ -157,8 +229,8 @@
       </div>
       <p class="footer-copy">&copy; 2025 Nurse Anesthesiology Nonprofit</p>
     </footer>
-    <script src="scripts/main.js"></script>
     <script>
+      // Theme picker logic
       const themeSelect = document.getElementById("theme-select");
       const userPref = localStorage.getItem("theme");
       if (userPref) {
@@ -167,12 +239,10 @@
       } else {
         themeSelect.value = "default";
       }
-
       themeSelect.addEventListener("change", function () {
         setTheme(this.value);
         localStorage.setItem("theme", this.value);
       });
-
       function setTheme(theme) {
         document.documentElement.classList.remove(
           "theme-default",
@@ -187,6 +257,43 @@
           document.documentElement.classList.add("theme-default");
         }
       }
+      // Animated counter
+      function animateCount(id, end, duration = 2000) {
+        const el = document.getElementById(id);
+        let start = 0;
+        const step = Math.ceil(end / (duration / 30));
+        const timer = setInterval(() => {
+          start += step;
+          if (start >= end) {
+            el.textContent = end.toLocaleString();
+            clearInterval(timer);
+          } else {
+            el.textContent = start.toLocaleString();
+          }
+        }, 30);
+      }
+      animateCount("scholarship-count", 1200);
+
+      // Testimonial slider
+      const testimonials = document.querySelectorAll(".testimonial");
+      let currentTestimonial = 0;
+      function showTestimonial(idx) {
+        testimonials.forEach((t, i) => t.classList.toggle("active", i === idx));
+      }
+      document.getElementById("prevTestimonial").onclick = function () {
+        currentTestimonial =
+          (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      };
+      document.getElementById("nextTestimonial").onclick = function () {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      };
+      // Optional: auto-advance every 8 seconds
+      setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+      }, 8000);
     </script>
   </body>
 </html>

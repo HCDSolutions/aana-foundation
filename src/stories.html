@@ -12,18 +12,32 @@
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
+      <nav class="main-nav">
+        <div class="brand-logo">
+          <img
+            src="images/logo.png"
+            alt="AANA Foundation - American Association of Nurse Anesthesiology"
+            style="height: 48px; width: auto; display: block"
+          />
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="impact.html">Impact</a></li>
           <li><a href="events.html">Events</a></li>
-          <li><a href="stories.html" class="active">Success Stories</a></li>
+          <li><a href="stories.html">Success Stories</a></li>
           <li><a href="volunteer.html">Volunteer</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <!-- Theme Picker -->
         <div class="theme-picker">
           <label for="theme-select" style="font-size: 0.95em">Theme:</label>
           <select id="theme-select">

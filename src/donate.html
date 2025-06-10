@@ -6,7 +6,6 @@
     <title>Donate | Nurse Anesthesiology Foundation</title>
     <link rel="stylesheet" href="styles/main.css" />
     <style>
-      /* Add button styles and 4px border radius for inputs */
       .select-group {
         display: flex;
         gap: 1em;
@@ -40,29 +39,79 @@
         gap: 1em;
         margin-bottom: 1.5em;
       }
+      /* --- Visual Enhancements --- */
+      .donation-form,
+      .story-card {
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+      .donation-form:hover,
+      .story-card:hover {
+        box-shadow: 0 8px 24px rgba(42, 82, 152, 0.15);
+        transform: translateY(-4px) scale(1.02);
+      }
+      .hero {
+        background: linear-gradient(
+            rgba(42, 82, 152, 0.7),
+            rgba(42, 82, 152, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+        color: #fff;
+        padding: 3em 1em;
+        border-radius: 8px;
+        margin-bottom: 2em;
+        text-align: center;
+      }
+      .impact-highlight {
+        margin: 2em auto 1em auto;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(42, 82, 152, 0.08);
+        padding: 1.5em 1em;
+        max-width: 400px;
+        text-align: center;
+      }
+      .impact-highlight h2 {
+        color: var(--primary, #2a5298);
+        font-size: 2em;
+        margin: 0;
+      }
+      #personal-greeting {
+        font-size: 1.1em;
+        color: #2a5298;
+        margin-bottom: 1em;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="main-nav">
         <div class="brand-logo">
-          <a href="index.html" aria-label="AANA Foundation Home">
-            <span class="logo-text"
-              >AANA <span class="logo-highlight">Foundation</span></span
-            >
-          </a>
+          <img
+            src="images/logo.png"
+            alt="AANA Foundation - American Association of Nurse Anesthesiology"
+            style="height: 48px; width: auto; display: block"
+          />
         </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="impact.html">Impact</a></li>
           <li><a href="events.html">Events</a></li>
-          <li><a href="stories.html" class="active">Success Stories</a></li>
+          <li><a href="stories.html">Success Stories</a></li>
           <li><a href="volunteer.html">Volunteer</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <div class="theme-picker">
           <label for="theme-select" style="font-size: 0.95em">Theme:</label>
           <select id="theme-select">
@@ -79,6 +128,16 @@
         Your gift funds research, scholarships, and the future of nurse
         anesthesiology.
       </p>
+      <!-- Personalization -->
+      <p id="personal-greeting"></p>
+      <!-- Impact Highlight -->
+      <div class="impact-highlight">
+        <h2><span id="scholarship-count">0</span> Scholarships Awarded</h2>
+        <p>
+          Thanks to donors like you, we've empowered over 1,200 nurse
+          anesthetists!
+        </p>
+      </div>
     </section>
     <main>
       <section>
@@ -293,6 +352,32 @@
           document.documentElement.classList.add("theme-default");
         }
       }
+
+      // Personalization
+      const greeting = document.getElementById("personal-greeting");
+      const donorName = localStorage.getItem("donorName");
+      if (donorName) {
+        greeting.textContent = `Welcome back, ${donorName}! Thank you for your continued support.`;
+      } else {
+        greeting.textContent = `Thank you for considering a donation!`;
+      }
+
+      // Impact Highlight Counter
+      function animateCount(id, end, duration = 2000) {
+        const el = document.getElementById(id);
+        let start = 0;
+        const step = Math.ceil(end / (duration / 30));
+        const timer = setInterval(() => {
+          start += step;
+          if (start >= end) {
+            el.textContent = end.toLocaleString();
+            clearInterval(timer);
+          } else {
+            el.textContent = start.toLocaleString();
+          }
+        }, 30);
+      }
+      animateCount("scholarship-count", 1200); // Example: 1200 scholarships
     </script>
   </body>
 </html>
