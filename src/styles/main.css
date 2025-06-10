@@ -70,7 +70,7 @@ section,
 .impact-list li,
 .stories-list .story,
 .event-cards .event-card {
-  background: #f8fafc;
+  background: #f0dec5;
   color: #1a2a4f;
 }
 
@@ -367,7 +367,7 @@ footer {
   --primary: #2a5298;
   --secondary: #1e3c72;
   --accent: #ffbe62;
-  --background: #fff;
+  --background: #f0dec5;
   --text: #222;
 }
 
@@ -496,6 +496,7 @@ nav {
 }
 .hero h1 {
   margin-top: 0;
+  margin-bottom: 1.2em;
   font-size: 2.2em;
   font-weight: bold;
 }
@@ -505,6 +506,7 @@ nav {
 }
 .hero .cta-button,
 .hero .secondary-button {
+  margin-top: 0;
   display: inline-block;
   min-width: 0;
   width: auto;
@@ -519,16 +521,10 @@ nav {
   z-index: 100;
   box-shadow: 0 2px 8px rgba(42, 82, 152, 0.07);
 }
-.hero {
-  background: linear-gradient(120deg, #2a5298 60%, #1e3c72 100%);
-  color: #fff;
-  padding: 2em 1em 5em 1em;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+
 .hero::after {
   content: "";
+  color: #f0dec5;
   position: absolute;
   left: 0;
   right: 0;
@@ -579,7 +575,7 @@ main {
 }
 .impact-highlight {
   margin: 1em auto 1em auto;
-  background: #fff;
+  background: #f0dec5;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(42, 82, 152, 0.1);
   padding: 1em 0.5em;
@@ -597,7 +593,7 @@ main {
   list-style: none;
 }
 .impact-list li {
-  background: #f7faff;
+  background: #f0dec5;
   border-radius: 10px;
   padding: 1.5em 2em;
   min-width: 220px;
@@ -865,15 +861,37 @@ main {
 .hero {
   background: linear-gradient(rgba(42, 82, 152, 0.07), rgba(42, 82, 152, 0.3)),
     url("../images/heroImage.png") center/cover no-repeat;
-
-  color: #fff;
+  color: #f0dec5;
   text-align: center;
-  padding: 4em 1em 4em 1em; /* Adjust padding as needed */
+  padding: 2em 1em 2em 1em;
   margin-bottom: 2em;
   border-radius: 0;
-  min-height: 340px; /* Adjust as needed for your image */
+  min-height: 340px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between; /* Pushes heading to top, buttons to bottom */
   align-items: center;
+  position: relative;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1em; /* Remove extra margin if present */
+  width: 100%;
+}
+
+/* Stack buttons vertically on mobile */
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75em;
+    align-items: center;
+  }
+  .hero-buttons .cta-button,
+  .hero-buttons .secondary-button {
+    width: 100%;
+    max-width: 320px;
+  }
 }
